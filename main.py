@@ -24,7 +24,7 @@ class DiophantineSystem:
         self.print_solutions()
 
     def print_solutions(self):
-        n = self.n - self.m + 1
+        n = self.m - 1
         s = len(self.x)
         for i in range(n):
             print(self.x[s - 1][i], end="\t")
@@ -38,13 +38,12 @@ class DiophantineSystem:
     def get_solutions(self):
         for i in range(0, self.n - self.m + 1):
             if self.matrix[i][self.m - 1] != 0:
-                return None
+                raise Exception("System is not solvable")
         for j in range(self.r, self.m):
             x = []
             for i in range(self.n - self.m + 1, self.n):
                 x.append(self.matrix[i][j])
             self.x.append(x)
-        return self.x
 
     def divide_last(self):
         for i in range(0, self.n - self.m + 1):
@@ -55,7 +54,6 @@ class DiophantineSystem:
                 self.r = i
                 break
             self.r = i + 1
-
 
     def form_A(self):
         for i in range(self.n):
