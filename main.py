@@ -108,7 +108,7 @@ class DiophantineSystem:
             if x > 0:
                 min_el = x
                 break
-        index = 0
+        index = abs_row.index(min_el)
         for i in range(0, len(abs_row)):
             if 0 < abs_row[i] < min_el:
                 min_el = abs_row[i]
